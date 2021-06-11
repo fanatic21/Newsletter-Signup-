@@ -57,7 +57,7 @@ const url = "https://us6.api.mailchimp.com/3.0/lists/c995e9844a";
       // console.log(t);
     })
     if(response.statusCode === 200){
-      res.sendFile(__dirname + "/success.html");
+      res.sendFile(__dirname + "/sucess.html");
 
     }
     else{
@@ -84,3 +84,4 @@ app.listen(process.env.PORT || 3000, function() {
 // 093fe718dd5086225df89610e1ade798-us6
 // List_Id
 //c995e9844a
+// heroku link->  https://polar-wildwood-68828.herokuapp.com/
