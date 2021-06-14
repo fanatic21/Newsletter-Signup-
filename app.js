@@ -6,6 +6,7 @@ const request = require("request");
 const https = require("https");
 
 const app = express();
+require('dotenv').config();
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -36,13 +37,13 @@ app.post("/", function(req, res){
 
   const json_data = JSON.stringify(data);
 
-const url = "https://us6.api.mailchimp.com/3.0/lists/c995e9844a";
+const url = "https://us6.api.mailchimp.com/3.0/lists/process.env.List_Id";
   //the options required to send data to mailchimp server
   const options = {
     //these values are specified in the documentation
     method : "POST",
     //authorization , requires username(which could be any string) and password(api key)
-    auth : "Saksham:093fe718dd5086225df89610e1ade798-us6" //the api key has been hidden due to security resons
+    auth : "Saksham:process.env.API_KEY" //the api key has been hidden due to security resons
   }
 
   //using above in our https request
@@ -80,8 +81,5 @@ app.post("/failure", function(req, res){
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server is running on port 3000");
 })
-// API Key
-// 093fe718dd5086225df89610e1ade798-us6
-// List_Id
-//c995e9844a
+
 // heroku link->  https://polar-wildwood-68828.herokuapp.com/
